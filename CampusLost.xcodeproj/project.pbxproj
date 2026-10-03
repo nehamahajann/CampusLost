@@ -6,15 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		91EDC66D3070D03300AE5061 /* CampusLostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC66B3070D03300AE5061 /* CampusLostApp.swift */; };
+		91EDC6723070D06300AE5061 /* CampusLost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */; };
+		91EDC6733070D06300AE5061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDC66F3070D06300AE5061 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		91EDC5C8306FD0BE00AE5061 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 91EDC5B0306FD0BB00AE5061 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 91EDC5B7306FD0BB00AE5061;
-			remoteInfo = CampusLost;
-		};
-		91EDC5D2306FD0BE00AE5061 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91EDC5B0306FD0BB00AE5061 /* Project object */;
 			proxyType = 1;
@@ -26,15 +25,45 @@
 /* Begin PBXFileReference section */
 		91EDC5B8306FD0BB00AE5061 /* CampusLost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusLost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusLostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91EDC5D1306FD0BE00AE5061 /* CampusLostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusLostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91EDC6103070C85C00AE5061 /* CampusLost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CampusLost.entitlements; sourceTree = "<group>"; };
+		91EDC66B3070D03300AE5061 /* CampusLostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusLostApp.swift; sourceTree = "<group>"; };
+		91EDC66F3070D06300AE5061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91EDC6713070D06300AE5061 /* CampusLost.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CampusLost.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		91EDC5BA306FD0BB00AE5061 /* CampusLost */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CampusLost;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		91EDC6763070D1EE00AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLost" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Repositories/CoreDataLostFoundRepository.swift,
+				Repositories/LostFoundRepository.swift,
+				Repositories/MockLostFoundRepository.swift,
+				Support/PersistenceController.swift,
+				UseCases/MatchLostAndFoundItemUseCase.swift,
+				UseCases/ReportFoundItemUseCase.swift,
+				UseCases/ReportLostItemUseCase.swift,
+				Views/HomeView.swift,
+				Views/MatchReviewView.swift,
+				Views/MyReportsView.swift,
+				Views/ReportFoundItemView.swift,
+				Views/ReportLostItemView.swift,
+			);
+			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
 		};
+		91EDC6913070D67200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Repositories/LostFoundRepository.swift,
+				Repositories/MockLostFoundRepository.swift,
+				UseCases/MatchLostAndFoundItemUseCase.swift,
+				UseCases/ReportFoundItemUseCase.swift,
+				UseCases/ReportLostItemUseCase.swift,
+			);
+			target = 91EDC5C6306FD0BE00AE5061 /* CampusLostTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		91EDC5CA306FD0BE00AE5061 /* CampusLostTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CampusLostTests;
@@ -42,6 +71,10 @@
 		};
 		91EDC5D4306FD0BE00AE5061 /* CampusLostUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				91EDC6763070D1EE00AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLost" target */,
+				91EDC6913070D67200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostTests" target */,
+			);
 			path = CampusLostUITests;
 			sourceTree = "<group>";
 		};
@@ -62,20 +95,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91EDC5CE306FD0BE00AE5061 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		91EDC5AF306FD0BB00AE5061 = {
 			isa = PBXGroup;
 			children = (
-				91EDC5BA306FD0BB00AE5061 /* CampusLost */,
+				91EDC6103070C85C00AE5061 /* CampusLost.entitlements */,
+				91EDC66F3070D06300AE5061 /* Assets.xcassets */,
+				91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */,
+				91EDC66B3070D03300AE5061 /* CampusLostApp.swift */,
 				91EDC5CA306FD0BE00AE5061 /* CampusLostTests */,
 				91EDC5D4306FD0BE00AE5061 /* CampusLostUITests */,
 				91EDC5B9306FD0BB00AE5061 /* Products */,
@@ -87,7 +116,6 @@
 			children = (
 				91EDC5B8306FD0BB00AE5061 /* CampusLost.app */,
 				91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */,
-				91EDC5D1306FD0BE00AE5061 /* CampusLostUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,9 +134,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				91EDC5BA306FD0BB00AE5061 /* CampusLost */,
 			);
 			name = CampusLost;
 			packageProductDependencies = (
@@ -140,29 +165,6 @@
 			productReference = 91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		91EDC5D0306FD0BE00AE5061 /* CampusLostUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 91EDC5E1306FD0BE00AE5061 /* Build configuration list for PBXNativeTarget "CampusLostUITests" */;
-			buildPhases = (
-				91EDC5CD306FD0BE00AE5061 /* Sources */,
-				91EDC5CE306FD0BE00AE5061 /* Frameworks */,
-				91EDC5CF306FD0BE00AE5061 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				91EDC5D3306FD0BE00AE5061 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				91EDC5D4306FD0BE00AE5061 /* CampusLostUITests */,
-			);
-			name = CampusLostUITests;
-			packageProductDependencies = (
-			);
-			productName = CampusLostUITests;
-			productReference = 91EDC5D1306FD0BE00AE5061 /* CampusLostUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,12 +177,9 @@
 				TargetAttributes = {
 					91EDC5B7306FD0BB00AE5061 = {
 						CreatedOnToolsVersion = 26.3;
+						LastSwiftMigration = 2630;
 					};
 					91EDC5C6306FD0BE00AE5061 = {
-						CreatedOnToolsVersion = 26.3;
-						TestTargetID = 91EDC5B7306FD0BB00AE5061;
-					};
-					91EDC5D0306FD0BE00AE5061 = {
 						CreatedOnToolsVersion = 26.3;
 						TestTargetID = 91EDC5B7306FD0BB00AE5061;
 					};
@@ -202,7 +201,6 @@
 			targets = (
 				91EDC5B7306FD0BB00AE5061 /* CampusLost */,
 				91EDC5C6306FD0BE00AE5061 /* CampusLostTests */,
-				91EDC5D0306FD0BE00AE5061 /* CampusLostUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,17 +210,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91EDC6733070D06300AE5061 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		91EDC5C5306FD0BE00AE5061 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		91EDC5CF306FD0BE00AE5061 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,17 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91EDC6723070D06300AE5061 /* CampusLost.xcdatamodeld in Sources */,
+				91EDC66D3070D03300AE5061 /* CampusLostApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		91EDC5C3306FD0BE00AE5061 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		91EDC5CD306FD0BE00AE5061 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,11 +247,6 @@
 			isa = PBXTargetDependency;
 			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
 			targetProxy = 91EDC5C8306FD0BE00AE5061 /* PBXContainerItemProxy */;
-		};
-		91EDC5D3306FD0BE00AE5061 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
-			targetProxy = 91EDC5D2306FD0BE00AE5061 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -393,8 +375,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CampusLost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 893Y7L7B66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -411,8 +396,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,8 +410,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CampusLost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 893Y7L7B66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -442,7 +431,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -492,44 +481,6 @@
 			};
 			name = Release;
 		};
-		91EDC5E2306FD0BE00AE5061 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Neha.CampusLostUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CampusLost;
-			};
-			name = Debug;
-		};
-		91EDC5E3306FD0BE00AE5061 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Neha.CampusLostUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CampusLost;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -560,16 +511,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91EDC5E1306FD0BE00AE5061 /* Build configuration list for PBXNativeTarget "CampusLostUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				91EDC5E2306FD0BE00AE5061 /* Debug */,
-				91EDC5E3306FD0BE00AE5061 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				91EDC6713070D06300AE5061 /* CampusLost.xcdatamodel */,
+			);
+			currentVersion = 91EDC6713070D06300AE5061 /* CampusLost.xcdatamodel */;
+			path = CampusLost.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 91EDC5B0306FD0BB00AE5061 /* Project object */;
 }

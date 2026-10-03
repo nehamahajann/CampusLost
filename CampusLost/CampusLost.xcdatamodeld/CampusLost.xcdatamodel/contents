@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24512" systemVersion="24G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="FoundReport" representedClassName="FoundReport" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String"/>
+        <attribute name="itemName" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="matchRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MatchRecord" inverseName="foundReport" inverseEntity="MatchRecord"/>
+    </entity>
+    <entity name="LostReport" representedClassName="LostReport" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String"/>
+        <attribute name="itemName" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="matchRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MatchRecord" inverseName="lostReport" inverseEntity="MatchRecord"/>
+    </entity>
+    <entity name="MatchRecord" representedClassName="MatchRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="matchDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="foundReport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoundReport" inverseName="matchRecord" inverseEntity="FoundReport"/>
+        <relationship name="lostReport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LostReport" inverseName="matchRecord" inverseEntity="LostReport"/>
+    </entity>
+</model>
