@@ -109,6 +109,7 @@
 				AppTheme.swift,
 				CampusLocationService.swift,
 				PersistenceController.swift,
+				PhotoClassificationService.swift,
 				SharedPhotoStore.swift,
 			);
 			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;

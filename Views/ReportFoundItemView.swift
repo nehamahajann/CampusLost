@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 struct ReportFoundItemView: View {
     @Environment(\.dismiss) private var dismiss
@@ -14,18 +15,49 @@ struct ReportFoundItemView: View {
     @State private var errorMessage: String?
     @State private var didSave = false
 
+    @State private var photoItem: PhotosPickerItem?
+    @State private var selectedPhoto: UIImage?
+    @State private var suggestedCategory: String?
+    @State private var isAnalyzingPhoto = false
+
     private let categories = ["Electronics", "Clothing", "Bag", "Keys", "ID/Cards", "Other"]
     private let repository: LostFoundRepository = CoreDataLostFoundRepository()
 
     var body: some View {
         Form {
-            if let sharedPhoto {
-                Section {
-                    Image(uiImage: sharedPhoto)
+            Section {
+                if let photo = selectedPhoto ?? sharedPhoto {
+                    Image(uiImage: photo)
                         .resizable().scaledToFit()
                         .frame(maxHeight: 180)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .frame(maxWidth: .infinity)
+                }
+
+                PhotosPicker(selection: $photoItem, matching: .images) {
+                    Label(selectedPhoto == nil ? "Add a photo" : "Change photo", systemImage: "camera")
+                }
+                .onChange(of: photoItem) { _, newItem in
+                    Task { await loadAndAnalyzePhoto(newItem) }
+                }
+
+                if isAnalyzingPhoto {
+                    HStack {
+                        ProgressView()
+                        Text("Analyzing photo...")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                if let suggestedCategory, suggestedCategory != category {
+                    Button {
+                        category = suggestedCategory
+                        self.suggestedCategory = nil
+                    } label: {
+                        Label("AI suggests: \(suggestedCategory) — tap to use", systemImage: "sparkles")
+                            .font(.caption)
+                    }
                 }
             }
 
@@ -82,5 +114,16 @@ struct ReportFoundItemView: View {
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+    
+    private func loadAndAnalyzePhoto(_ item: PhotosPickerItem?) async {
+        guard let item,
+              let data = try? await item.loadTransferable(type: Data.self),
+              let image = UIImage(data: data) else { return }
+
+        selectedPhoto = image
+        isAnalyzingPhoto = true
+        suggestedCategory = await PhotoClassificationService.suggestCategory(for: image)
+        isAnalyzingPhoto = false
     }
 }

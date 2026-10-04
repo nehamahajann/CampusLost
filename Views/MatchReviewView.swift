@@ -29,7 +29,7 @@ struct MatchReviewView: View {
         .alert("Match Confirmed!", isPresented: $showPickupInstructions) {
             Button("OK") {}
         } message: {
-            Text("Great news — head to UTS Security (Building 1, Ground Floor) with your student ID to collect your item. They hold all confirmed found items on campus.")
+            Text("Great news! head to UTS Security (Building 1, Ground Floor) with your student ID to collect your item. They hold all confirmed found items on campus.")
         }
     }
 
