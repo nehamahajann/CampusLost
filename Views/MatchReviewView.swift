@@ -5,6 +5,7 @@ struct MatchReviewView: View {
     @State private var matches: [MatchRecordItem] = []
     @State private var lostReports: [LostReportItem] = []
     @State private var foundReports: [FoundReportItem] = []
+    @State private var showPickupInstructions = false
 
     private let repository: LostFoundRepository = CoreDataLostFoundRepository()
 
@@ -25,6 +26,11 @@ struct MatchReviewView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle("Possible matches")
         .onAppear(perform: reload)
+        .alert("Match Confirmed!", isPresented: $showPickupInstructions) {
+            Button("OK") {}
+        } message: {
+            Text("Great news — head to UTS Security (Building 1, Ground Floor) with your student ID to collect your item. They hold all confirmed found items on campus.")
+        }
     }
 
     private var pendingMatches: [MatchRecordItem] {
@@ -58,9 +64,12 @@ struct MatchReviewView: View {
             }
 
             HStack(spacing: 10) {
-                Button("Confirm, this is mine") { updateStatus(match.id, to: "confirmed") }
-                    .buttonStyle(.borderedProminent)
-                    .tint(AppTheme.matched)
+                Button("Confirm, this is mine") {
+                    updateStatus(match.id, to: "confirmed")
+                    showPickupInstructions = true
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(AppTheme.matched)
                 Button("Not my item") { updateStatus(match.id, to: "rejected") }
                     .buttonStyle(.bordered)
             }
