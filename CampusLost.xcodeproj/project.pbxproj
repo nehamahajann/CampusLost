@@ -107,6 +107,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				AppTheme.swift,
+				CampusLocationService.swift,
 				PersistenceController.swift,
 				SharedPhotoStore.swift,
 			);
@@ -663,6 +664,7 @@
 				DEVELOPMENT_TEAM = 893Y7L7B66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "CampusLost uses your location to suggest which campus building you're in when reporting a lost or found item.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -698,6 +700,7 @@
 				DEVELOPMENT_TEAM = 893Y7L7B66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "CampusLost uses your location to suggest which campus building you're in when reporting a lost or found item.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ReportLostItemView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var locationService = CampusLocationService()
 
     @State private var itemName = ""
     @State private var category = "Electronics"
@@ -23,6 +24,15 @@ struct ReportLostItemView: View {
                     }
                 }
                 TextField("Location (e.g. Building 11)", text: $location)
+                if let suggested = locationService.suggestedBuilding, location.isEmpty {
+                    Button {
+                        location = suggested
+                    } label: {
+                        Label("Use detected location: \(suggested)", systemImage: "location.fill")
+                            .font(.caption)
+                    }
+                }
+                
                 DatePicker("Date lost", selection: $date, in: ...Date.now, displayedComponents: .date)
                 TextField("Description", text: $itemDescription, axis: .vertical)
                     .lineLimit(3...6)
@@ -40,6 +50,7 @@ struct ReportLostItemView: View {
             }
         }
         .navigationTitle("Report lost item")
+        .onAppear { locationService.requestLocation() }
         .alert("Couldn't Submit", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) { errorMessage = nil }
         } message: { Text(errorMessage ?? "") }
