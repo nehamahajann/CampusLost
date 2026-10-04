@@ -10,6 +10,13 @@
 		91EDC66D3070D03300AE5061 /* CampusLostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC66B3070D03300AE5061 /* CampusLostApp.swift */; };
 		91EDC6723070D06300AE5061 /* CampusLost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */; };
 		91EDC6733070D06300AE5061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDC66F3070D06300AE5061 /* Assets.xcassets */; };
+		91EDC69D3070DAE500AE5061 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91EDC69C3070DAE500AE5061 /* WidgetKit.framework */; };
+		91EDC69F3070DAE500AE5061 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91EDC69E3070DAE500AE5061 /* SwiftUI.framework */; };
+		91EDC6AC3070DAE600AE5061 /* CampusLostWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 91EDC69A3070DAE500AE5061 /* CampusLostWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		91EDC6B73070DE2500AE5061 /* CampusLost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */; };
+		91EDC6D53070EE6900AE5061 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91EDC6D43070EE6900AE5061 /* UserNotifications.framework */; };
+		91EDC6D73070EE6900AE5061 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91EDC6D63070EE6900AE5061 /* UserNotificationsUI.framework */; };
+		91EDC6E13070EE6900AE5061 /* CampusLostNotification.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 91EDC6D33070EE6900AE5061 /* CampusLostNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,7 +27,36 @@
 			remoteGlobalIDString = 91EDC5B7306FD0BB00AE5061;
 			remoteInfo = CampusLost;
 		};
+		91EDC6AA3070DAE600AE5061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91EDC5B0306FD0BB00AE5061 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91EDC6993070DAE500AE5061;
+			remoteInfo = CampusLostWidgetExtension;
+		};
+		91EDC6DF3070EE6900AE5061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91EDC5B0306FD0BB00AE5061 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91EDC6D23070EE6900AE5061;
+			remoteInfo = CampusLostNotification;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		91EDC6B13070DAE600AE5061 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				91EDC6E13070EE6900AE5061 /* CampusLostNotification.appex in Embed Foundation Extensions */,
+				91EDC6AC3070DAE600AE5061 /* CampusLostWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		91EDC5B8306FD0BB00AE5061 /* CampusLost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusLost.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +65,13 @@
 		91EDC66B3070D03300AE5061 /* CampusLostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusLostApp.swift; sourceTree = "<group>"; };
 		91EDC66F3070D06300AE5061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91EDC6713070D06300AE5061 /* CampusLost.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CampusLost.xcdatamodel; sourceTree = "<group>"; };
+		91EDC69A3070DAE500AE5061 /* CampusLostWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CampusLostWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		91EDC69C3070DAE500AE5061 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		91EDC69E3070DAE500AE5061 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		91EDC6B23070DB2300AE5061 /* CampusLostWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CampusLostWidgetExtension.entitlements; sourceTree = "<group>"; };
+		91EDC6D33070EE6900AE5061 /* CampusLostNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CampusLostNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		91EDC6D43070EE6900AE5061 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		91EDC6D63070EE6900AE5061 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -38,15 +81,19 @@
 				Repositories/CoreDataLostFoundRepository.swift,
 				Repositories/LostFoundRepository.swift,
 				Repositories/MockLostFoundRepository.swift,
+				Support/AppTheme.swift,
 				Support/PersistenceController.swift,
+				Support/SharedPhotoStore.swift,
 				UseCases/MatchLostAndFoundItemUseCase.swift,
 				UseCases/ReportFoundItemUseCase.swift,
 				UseCases/ReportLostItemUseCase.swift,
+				Views/BrowseFoundItemsView.swift,
 				Views/HomeView.swift,
 				Views/MatchReviewView.swift,
 				Views/MyReportsView.swift,
 				Views/ReportFoundItemView.swift,
 				Views/ReportLostItemView.swift,
+				Views/SplashScreenView.swift,
 			);
 			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
 		};
@@ -61,6 +108,29 @@
 			);
 			target = 91EDC5C6306FD0BE00AE5061 /* CampusLostTests */;
 		};
+		91EDC6B03070DAE600AE5061 /* Exceptions for "CampusLostWidget" folder in "CampusLostWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
+		};
+		91EDC6B43070DCE200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Repositories/CoreDataLostFoundRepository.swift,
+				Repositories/LostFoundRepository.swift,
+				Support/PersistenceController.swift,
+			);
+			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
+		};
+		91EDC6E53070EE6900AE5061 /* Exceptions for "CampusLostNotification" folder in "CampusLostNotification" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 91EDC6D23070EE6900AE5061 /* CampusLostNotification */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -74,8 +144,25 @@
 			exceptions = (
 				91EDC6763070D1EE00AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLost" target */,
 				91EDC6913070D67200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostTests" target */,
+				91EDC6B43070DCE200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostWidgetExtension" target */,
 			);
 			path = CampusLostUITests;
+			sourceTree = "<group>";
+		};
+		91EDC6A03070DAE500AE5061 /* CampusLostWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				91EDC6B03070DAE600AE5061 /* Exceptions for "CampusLostWidget" folder in "CampusLostWidgetExtension" target */,
+			);
+			path = CampusLostWidget;
+			sourceTree = "<group>";
+		};
+		91EDC6D83070EE6900AE5061 /* CampusLostNotification */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				91EDC6E53070EE6900AE5061 /* Exceptions for "CampusLostNotification" folder in "CampusLostNotification" target */,
+			);
+			path = CampusLostNotification;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -95,18 +182,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91EDC6973070DAE500AE5061 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EDC69F3070DAE500AE5061 /* SwiftUI.framework in Frameworks */,
+				91EDC69D3070DAE500AE5061 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EDC6D03070EE6900AE5061 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EDC6D73070EE6900AE5061 /* UserNotificationsUI.framework in Frameworks */,
+				91EDC6D53070EE6900AE5061 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		91EDC5AF306FD0BB00AE5061 = {
 			isa = PBXGroup;
 			children = (
+				91EDC6B23070DB2300AE5061 /* CampusLostWidgetExtension.entitlements */,
 				91EDC6103070C85C00AE5061 /* CampusLost.entitlements */,
 				91EDC66F3070D06300AE5061 /* Assets.xcassets */,
 				91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */,
 				91EDC66B3070D03300AE5061 /* CampusLostApp.swift */,
 				91EDC5CA306FD0BE00AE5061 /* CampusLostTests */,
 				91EDC5D4306FD0BE00AE5061 /* CampusLostUITests */,
+				91EDC6A03070DAE500AE5061 /* CampusLostWidget */,
+				91EDC6D83070EE6900AE5061 /* CampusLostNotification */,
+				91EDC69B3070DAE500AE5061 /* Frameworks */,
 				91EDC5B9306FD0BB00AE5061 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,8 +225,21 @@
 			children = (
 				91EDC5B8306FD0BB00AE5061 /* CampusLost.app */,
 				91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */,
+				91EDC69A3070DAE500AE5061 /* CampusLostWidgetExtension.appex */,
+				91EDC6D33070EE6900AE5061 /* CampusLostNotification.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		91EDC69B3070DAE500AE5061 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91EDC69C3070DAE500AE5061 /* WidgetKit.framework */,
+				91EDC69E3070DAE500AE5061 /* SwiftUI.framework */,
+				91EDC6D43070EE6900AE5061 /* UserNotifications.framework */,
+				91EDC6D63070EE6900AE5061 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,10 +252,13 @@
 				91EDC5B4306FD0BB00AE5061 /* Sources */,
 				91EDC5B5306FD0BB00AE5061 /* Frameworks */,
 				91EDC5B6306FD0BB00AE5061 /* Resources */,
+				91EDC6B13070DAE600AE5061 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				91EDC6AB3070DAE600AE5061 /* PBXTargetDependency */,
+				91EDC6E03070EE6900AE5061 /* PBXTargetDependency */,
 			);
 			name = CampusLost;
 			packageProductDependencies = (
@@ -165,6 +290,50 @@
 			productReference = 91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91EDC6AD3070DAE600AE5061 /* Build configuration list for PBXNativeTarget "CampusLostWidgetExtension" */;
+			buildPhases = (
+				91EDC6963070DAE500AE5061 /* Sources */,
+				91EDC6973070DAE500AE5061 /* Frameworks */,
+				91EDC6983070DAE500AE5061 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				91EDC6A03070DAE500AE5061 /* CampusLostWidget */,
+			);
+			name = CampusLostWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = CampusLostWidgetExtension;
+			productReference = 91EDC69A3070DAE500AE5061 /* CampusLostWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		91EDC6D23070EE6900AE5061 /* CampusLostNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91EDC6E23070EE6900AE5061 /* Build configuration list for PBXNativeTarget "CampusLostNotification" */;
+			buildPhases = (
+				91EDC6CF3070EE6900AE5061 /* Sources */,
+				91EDC6D03070EE6900AE5061 /* Frameworks */,
+				91EDC6D13070EE6900AE5061 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				91EDC6D83070EE6900AE5061 /* CampusLostNotification */,
+			);
+			name = CampusLostNotification;
+			packageProductDependencies = (
+			);
+			productName = CampusLostNotification;
+			productReference = 91EDC6D33070EE6900AE5061 /* CampusLostNotification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,6 +351,12 @@
 					91EDC5C6306FD0BE00AE5061 = {
 						CreatedOnToolsVersion = 26.3;
 						TestTargetID = 91EDC5B7306FD0BB00AE5061;
+					};
+					91EDC6993070DAE500AE5061 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					91EDC6D23070EE6900AE5061 = {
+						CreatedOnToolsVersion = 26.3;
 					};
 				};
 			};
@@ -201,6 +376,8 @@
 			targets = (
 				91EDC5B7306FD0BB00AE5061 /* CampusLost */,
 				91EDC5C6306FD0BE00AE5061 /* CampusLostTests */,
+				91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */,
+				91EDC6D23070EE6900AE5061 /* CampusLostNotification */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +392,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		91EDC5C5306FD0BE00AE5061 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EDC6983070DAE500AE5061 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EDC6D13070EE6900AE5061 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,6 +431,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91EDC6963070DAE500AE5061 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EDC6B73070DE2500AE5061 /* CampusLost.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EDC6CF3070EE6900AE5061 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -247,6 +453,16 @@
 			isa = PBXTargetDependency;
 			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
 			targetProxy = 91EDC5C8306FD0BE00AE5061 /* PBXContainerItemProxy */;
+		};
+		91EDC6AB3070DAE600AE5061 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
+			targetProxy = 91EDC6AA3070DAE600AE5061 /* PBXContainerItemProxy */;
+		};
+		91EDC6E03070EE6900AE5061 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91EDC6D23070EE6900AE5061 /* CampusLostNotification */;
+			targetProxy = 91EDC6DF3070EE6900AE5061 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -481,6 +697,124 @@
 			};
 			name = Release;
 		};
+		91EDC6AE3070DAE600AE5061 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CampusLostWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 893Y7L7B66;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusLostWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CampusLostWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Neha.CampusLost.CampusLostWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91EDC6AF3070DAE600AE5061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CampusLostWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 893Y7L7B66;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusLostWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CampusLostWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Neha.CampusLost.CampusLostWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		91EDC6E33070EE6900AE5061 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 893Y7L7B66;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusLostNotification/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CampusLostNotification;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Neha.CampusLost.CampusLostNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91EDC6E43070EE6900AE5061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 893Y7L7B66;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusLostNotification/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CampusLostNotification;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Neha.CampusLost.CampusLostNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -507,6 +841,24 @@
 			buildConfigurations = (
 				91EDC5DF306FD0BE00AE5061 /* Debug */,
 				91EDC5E0306FD0BE00AE5061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91EDC6AD3070DAE600AE5061 /* Build configuration list for PBXNativeTarget "CampusLostWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91EDC6AE3070DAE600AE5061 /* Debug */,
+				91EDC6AF3070DAE600AE5061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91EDC6E23070EE6900AE5061 /* Build configuration list for PBXNativeTarget "CampusLostNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91EDC6E33070EE6900AE5061 /* Debug */,
+				91EDC6E43070EE6900AE5061 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
