@@ -8,21 +8,6 @@ struct HomeView: View {
             VStack(spacing: 20) {
                 Spacer()
 
-                VStack(spacing: 10) {
-                    HStack(spacing: 10) {
-                        iconBadge(icon: "questionmark.circle.fill", color: AppTheme.lost)
-                        Image(systemName: "arrow.right")
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(.secondary)
-                        iconBadge(icon: "checkmark.circle.fill", color: AppTheme.found)
-                    }
-                    Text("CampusLost").font(.largeTitle.bold())
-                    Text("Lost it? Found it? Let's sort it out.")
-                        .font(.subheadline).foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.top, 16)
-
                 if let sharedPhoto {
                     NavigationLink {
                         ReportFoundItemView(sharedPhoto: sharedPhoto)
@@ -30,7 +15,7 @@ struct HomeView: View {
                         HStack(spacing: 12) {
                             Image(uiImage: sharedPhoto)
                                 .resizable().scaledToFill()
-                                .frame(width: 48, height: 48)
+                                .frame(width: 44, height: 44)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Continue found-item report").font(.subheadline.weight(.semibold))
@@ -42,58 +27,79 @@ struct HomeView: View {
                         .cardStyle()
                     }
                     .buttonStyle(.plain)
+                    .padding(.horizontal, 4)
                 }
 
-                VStack(spacing: 14) {
+                ZStack {
+                    Circle().fill(AppTheme.accent.opacity(0.12)).frame(width: 104, height: 104)
+                    Image(systemName: "location.magnifyingglass")
+                        .font(.system(size: 44, weight: .medium))
+                        .foregroundStyle(AppTheme.accent)
+                }
+
+                VStack(spacing: 4) {
+                    Text("CampusLost").font(.title.bold())
+                    Text("Reuniting students with what\nthey've lost")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+
+                VStack(spacing: 12) {
                     NavigationLink {
                         ReportLostItemView()
                     } label: {
-                        actionRow(icon: "questionmark.circle.fill", title: "I lost something",
-                                  subtitle: "Report a missing item", color: AppTheme.lost)
+                        Label("I lost something", systemImage: "questionmark.circle.fill")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .fontWeight(.semibold)
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(.borderedProminent)
+                    .tint(AppTheme.lost)
 
                     NavigationLink {
                         ReportFoundItemView()
                     } label: {
-                        actionRow(icon: "checkmark.circle.fill", title: "I found something",
-                                  subtitle: "Help reunite it with its owner", color: AppTheme.found)
+                        Label("I found something", systemImage: "checkmark.circle.fill")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .fontWeight(.semibold)
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(.borderedProminent)
+                    .tint(AppTheme.found)
                 }
-                .cardStyle()
 
-                VStack(spacing: 10) {
+                Spacer()
+
+                Divider()
+
+                HStack(spacing: 0) {
                     NavigationLink {
                         MyReportsView()
                     } label: {
-                        HStack {
-                            Image(systemName: "list.bullet.rectangle").foregroundStyle(AppTheme.accent)
-                            Text("My reports").font(.subheadline.weight(.medium))
-                            Spacer()
-                            Image(systemName: "chevron.right").foregroundStyle(.secondary)
+                        VStack(spacing: 6) {
+                            Image(systemName: "list.bullet.rectangle")
+                                .font(.system(size: 20, weight: .semibold))
+                            Text("My reports").font(.caption.weight(.medium))
                         }
+                        .foregroundStyle(AppTheme.accent)
+                        .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.plain)
-
-                    Divider()
 
                     NavigationLink {
                         BrowseFoundItemsView()
                     } label: {
-                        HStack {
-                            Image(systemName: "magnifyingglass").foregroundStyle(AppTheme.found)
-                            Text("Browse found items").font(.subheadline.weight(.medium))
-                            Spacer()
-                            Image(systemName: "chevron.right").foregroundStyle(.secondary)
+                        VStack(spacing: 6) {
+                            Image(systemName: "magnifyingglass")
+                                .font(.system(size: 20, weight: .semibold))
+                            Text("Browse").font(.caption.weight(.medium))
                         }
+                        .foregroundStyle(AppTheme.found)
+                        .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.plain)
                 }
-                .cardStyle()
-
-                Spacer()
-                Spacer()
+                .padding(.top, 14)
+                .padding(.bottom, 4)
             }
             .padding()
             .background(Color(.systemGroupedBackground))
@@ -101,28 +107,6 @@ struct HomeView: View {
             .onAppear {
                 sharedPhoto = SharedPhotoStore.pendingPhoto()
             }
-        }
-    }
-
-    private func actionRow(icon: String, title: String, subtitle: String, color: Color) -> some View {
-        HStack(spacing: 14) {
-            ZStack {
-                Circle().fill(color.opacity(0.15)).frame(width: 46, height: 46)
-                Image(systemName: icon).foregroundStyle(color).font(.system(size: 20))
-            }
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title).font(.body.weight(.semibold))
-                Text(subtitle).font(.caption).foregroundStyle(.secondary)
-            }
-            Spacer()
-            Image(systemName: "chevron.right").foregroundStyle(.secondary).font(.caption)
-        }
-    }
-
-    private func iconBadge(icon: String, color: Color) -> some View {
-        ZStack {
-            Circle().fill(color.opacity(0.15)).frame(width: 36, height: 36)
-            Image(systemName: icon).font(.system(size: 16, weight: .semibold)).foregroundStyle(color)
         }
     }
 }

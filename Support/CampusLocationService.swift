@@ -1,10 +1,3 @@
-//
-//  CampusLocationService.swift
-//  CampusLost
-//
-//  Created by Neha on 4/10/2026.
-//
-
 import CoreLocation
 import Combine
 
@@ -28,8 +21,7 @@ final class CampusLocationService: NSObject, ObservableObject, CLLocationManager
         ("Building 5", CLLocationCoordinate2D(latitude: -33.8845, longitude: 151.2008)),
     ]
 
-    /// Only suggest a building if the student is within this many metres —
-    /// otherwise leave the field blank rather than guess wrong.
+    /// Only suggest a building if the student is within this many metres
     private let maxSuggestionDistanceMeters: CLLocationDistance = 300
 
     override init() {
@@ -73,7 +65,5 @@ final class CampusLocationService: NSObject, ObservableObject, CLLocationManager
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // Silently ignore — location is a convenience here, not a requirement.
-        // The student can always type the location in manually.
     }
 }

@@ -12,6 +12,7 @@ struct ReportFoundItemView: View {
     @State private var date = Date.now
     @State private var itemDescription = ""
     @State private var errorMessage: String?
+    @State private var didSave = false
 
     private let categories = ["Electronics", "Clothing", "Bag", "Keys", "ID/Cards", "Other"]
     private let repository: LostFoundRepository = CoreDataLostFoundRepository()
@@ -65,6 +66,9 @@ struct ReportFoundItemView: View {
         .alert("Couldn't Submit", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) { errorMessage = nil }
         } message: { Text(errorMessage ?? "") }
+        .alert("Report Submitted", isPresented: $didSave) {
+            Button("OK") { dismiss() }
+        } message: { Text("Thanks for helping! Your found item report has been saved and we'll check for a matching lost report.") }
     }
 
     private func submit() {
@@ -74,7 +78,7 @@ struct ReportFoundItemView: View {
                 location: location, date: date
             )
             SharedPhotoStore.clearPendingPhoto()
-            dismiss()
+            didSave = true
         } catch {
             errorMessage = error.localizedDescription
         }

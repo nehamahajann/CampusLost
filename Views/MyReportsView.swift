@@ -13,7 +13,8 @@ struct MyReportsView: View {
         List {
             Section {
                 if lostReports.isEmpty {
-                    Text("No lost reports yet").foregroundStyle(.secondary)
+                    ContentUnavailableView("No lost reports", systemImage: "questionmark.circle",
+                        description: Text("Reports you submit for lost items will appear here."))
                 }
                 ForEach(lostReports) { report in
                     reportRow(name: report.itemName, category: report.category,
@@ -25,7 +26,8 @@ struct MyReportsView: View {
 
             Section {
                 if foundReports.isEmpty {
-                    Text("No found reports yet").foregroundStyle(.secondary)
+                    ContentUnavailableView("No found reports", systemImage: "checkmark.circle",
+                        description: Text("Items you report finding will appear here."))
                 }
                 ForEach(foundReports) { report in
                     reportRow(name: report.itemName, category: report.category,

@@ -1,49 +1,3 @@
-//import Foundation
-//
-//enum ItemMatchingError: LocalizedError, Equatable {
-//    case noCandidatesFound
-//    case dateOutsideMatchingWindow(maxDays: Int)
-//
-//    var errorDescription: String? {
-//        switch self {
-//        case .noCandidatesFound:
-//            return "No found items currently match this report's category and location. We'll keep checking as new items are reported."
-//        case .dateOutsideMatchingWindow(let maxDays):
-//            return "A found item exists for this category and location, but it was reported more than \(maxDays) days apart — too far apart to confidently call it a match."
-//        }
-//    }
-//}
-//
-///// Encapsulates the core business rule of CampusLost: deciding whether a
-///// lost report and a found report are likely describing the same item.
-//struct MatchLostAndFoundItemUseCase {
-//    let repository: LostFoundRepository
-//    private let matchingWindowDays = 7
-//
-//    /// Looks for a found report that could plausibly match the given lost
-//    /// report, and if one exists, creates a MatchRecord linking them.
-//    @discardableResult
-//    func execute(for lostReport: LostReportItem) throws -> MatchRecordItem {
-//        let candidates = repository.unmatchedFoundReports(
-//            category: lostReport.category,
-//            location: lostReport.location,
-//            around: lostReport.date,
-//            dayWindow: matchingWindowDays
-//        )
-//
-//        guard let bestMatch = candidates.first else {
-//            throw ItemMatchingError.noCandidatesFound
-//        }
-//
-//        let match = MatchRecordItem(
-//            id: UUID(), matchDate: .now, status: "pending_review",
-//            lostReportID: lostReport.id, foundReportID: bestMatch.id
-//        )
-//        try repository.saveMatch(match)
-//        return match
-//    }
-//}
-
 import Foundation
 
 enum ItemMatchingError: LocalizedError, Equatable {
@@ -62,12 +16,7 @@ enum ItemMatchingError: LocalizedError, Equatable {
 
 /// Encapsulates the core business rule of CampusLost: deciding whether a
 /// lost report and a found report are likely describing the same item.
-///
-/// Rather than just checking category + location + date, this also scores
-/// how closely the item names and descriptions actually line up, so when
-/// several found items share a category and location, the one that's
-/// genuinely the best textual match gets picked — not just the first
-/// one reported.
+
 struct MatchLostAndFoundItemUseCase {
     let repository: LostFoundRepository
     private let matchingWindowDays = 7
@@ -101,9 +50,8 @@ struct MatchLostAndFoundItemUseCase {
 
     /// A simple, explainable confidence score (0-100) for how likely a
     /// lost and found report describe the same item. Category, location,
-    /// and date are already guaranteed to align by this point — this adds
-    /// a text-similarity layer on top, comparing item names and
-    /// descriptions word-for-word.
+    /// and date are already guaranteed to align by this point,
+    
     static func confidence(lost: LostReportItem, found: FoundReportItem) -> Int {
         var score = 50 // baseline, since category/location/date already matched
 

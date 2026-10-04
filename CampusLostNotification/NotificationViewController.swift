@@ -1,10 +1,3 @@
-//
-//  NotificationViewController.swift
-//  CampusLostNotification
-//
-//  Created by Neha on 3/10/2026.
-//
-
 import UIKit
 import UserNotifications
 import UserNotificationsUI

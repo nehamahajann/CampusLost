@@ -1,11 +1,3 @@
-//
-//  SharedPhotoStore.swift
-//  CampusLost
-//
-//  Created by Neha on 3/10/2026.
-//
-
-
 import UIKit
 
 /// Reads the photo a user shared into CampusLost via the Share Extension,

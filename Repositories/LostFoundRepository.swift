@@ -1,7 +1,7 @@
 import Foundation
 
-/// A lost item report, independent of how it's stored — Use Cases and Views
-/// only ever see this struct, never Core Data's generated classes.
+/// A student's report of an item they've lost on campus — what it is,
+/// where and when it went missing, and whether it's been matched yet.
 struct LostReportItem: Identifiable, Equatable {
     let id: UUID
     var itemName: String
@@ -12,7 +12,8 @@ struct LostReportItem: Identifiable, Equatable {
     var status: String
     var createdAt: Date
 }
-
+/// An item someone has found on campus and reported, so its rightful
+/// owner can be matched to it automatically.
 struct FoundReportItem: Identifiable, Equatable {
     let id: UUID
     var itemName: String
@@ -24,6 +25,10 @@ struct FoundReportItem: Identifiable, Equatable {
     var createdAt: Date
 }
 
+/// Links a lost report to a found report the system believes describes
+/// the same item, along with how confident that guess is and whether
+/// the student has confirmed or rejected it.
+
 struct MatchRecordItem: Identifiable, Equatable {
     let id: UUID
     var matchDate: Date
@@ -33,17 +38,13 @@ struct MatchRecordItem: Identifiable, Equatable {
     var confidencePercent: Int
 }
 
-/// Abstracts all persistence for lost/found reports and matches behind a
-/// protocol, so Use Cases never talk to Core Data directly, and tests can
-/// swap in an in-memory mock instead of touching the real database.
 protocol LostFoundRepository {
     func saveLostReport(_ report: LostReportItem) throws
     func saveFoundReport(_ report: FoundReportItem) throws
     func allLostReports() -> [LostReportItem]
     func allFoundReports() -> [FoundReportItem]
 
-    /// The core domain query: found reports that could plausibly match a
-    /// given lost report — same category, same location, found within
+
     /// `dayWindow` days of the lost date, and not already matched.
     func unmatchedFoundReports(category: String, location: String, around date: Date, dayWindow: Int) -> [FoundReportItem]
 
