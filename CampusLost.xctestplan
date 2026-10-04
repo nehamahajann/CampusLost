@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "AC7B6A49-5EB0-4AEC-BF1E-5C2B417747F7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CampusLost.xcodeproj",
+      "identifier" : "91EDC5B7306FD0BB00AE5061",
+      "name" : "CampusLost"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CampusLost.xcodeproj",
+        "identifier" : "91EDC5C6306FD0BE00AE5061",
+        "name" : "CampusLostTests"
+      }
+    }
+  ],
+  "version" : 1
+}

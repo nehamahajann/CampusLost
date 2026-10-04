@@ -44,4 +44,24 @@ final class MatchLostAndFoundItemUseCaseTests: XCTestCase {
             XCTAssertEqual(error as? ItemMatchingError, .noCandidatesFound)
         }
     }
+    
+    func test_matchLostAndFoundItem_fails_whenFoundItemIsExactlyAtMatchingWindowBoundary() {
+        let today = Date.now
+        let eightDaysAgo = Calendar.current.date(byAdding: .day, value: -8, to: today)!
+
+        let lost = LostReportItem(
+            id: UUID(), itemName: "Umbrella", category: "Other",
+            itemDescription: "Blue umbrella with wooden handle", location: "Library",
+            date: today, status: "unmatched", createdAt: today
+        )
+        repository.foundReports.append(FoundReportItem(
+            id: UUID(), itemName: "Umbrella", category: "Other",
+            itemDescription: "Blue umbrella", location: "Library",
+            date: eightDaysAgo, status: "unmatched", createdAt: eightDaysAgo
+        ))
+
+        XCTAssertThrowsError(try MatchLostAndFoundItemUseCase(repository: repository).execute(for: lost)) { error in
+            XCTAssertEqual(error as? ItemMatchingError, .noCandidatesFound)
+        }
+    }
 }

@@ -59,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		914B412F307206DC00535ED7 /* CampusLost.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = CampusLost.xctestplan; sourceTree = "<group>"; };
 		91EDC5B8306FD0BB00AE5061 /* CampusLost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusLost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusLostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDC6103070C85C00AE5061 /* CampusLost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CampusLost.entitlements; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 		91EDC5AF306FD0BB00AE5061 = {
 			isa = PBXGroup;
 			children = (
+				914B412F307206DC00535ED7 /* CampusLost.xctestplan */,
 				91EDC6B23070DB2300AE5061 /* CampusLostWidgetExtension.entitlements */,
 				91EDC6103070C85C00AE5061 /* CampusLost.entitlements */,
 				91EDC66F3070D06300AE5061 /* Assets.xcassets */,
