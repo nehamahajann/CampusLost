@@ -122,12 +122,6 @@ final class CoreDataLostFoundRepository: LostFoundRepository {
             date: date, status: status, createdAt: createdAt
         )
     }
-
-//    private static func toItem(_ entity: MatchRecord) -> MatchRecordItem? {
-//        guard let id = entity.id, let matchDate = entity.matchDate, let status = entity.status,
-//              let lostID = entity.lostReport?.id, let foundID = entity.foundReport?.id else { return nil }
-//        return MatchRecordItem(id: id, matchDate: matchDate, status: status, lostReportID: lostID, foundReportID: foundID)
-//    }
     
     private nonisolated static func toItem(_ entity: MatchRecord) -> MatchRecordItem? {
         guard let id = entity.id, let matchDate = entity.matchDate, let status = entity.status,
