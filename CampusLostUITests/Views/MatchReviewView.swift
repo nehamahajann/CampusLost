@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 
 struct MatchReviewView: View {
     @State private var matches: [MatchRecordItem] = []
@@ -8,15 +9,20 @@ struct MatchReviewView: View {
     private let repository: LostFoundRepository = CoreDataLostFoundRepository()
 
     var body: some View {
-        List {
-            if pendingMatches.isEmpty {
-                ContentUnavailableView("No matches yet", systemImage: "checkmark.circle",
-                    description: Text("We'll let you know when a found item matches one of your lost reports."))
+        ScrollView {
+            VStack(spacing: 14) {
+                if pendingMatches.isEmpty {
+                    ContentUnavailableView("No matches yet", systemImage: "checkmark.circle",
+                        description: Text("We'll let you know when a found item matches one of your lost reports."))
+                        .padding(.top, 60)
+                }
+                ForEach(pendingMatches) { match in
+                    matchCard(for: match)
+                }
             }
-            ForEach(pendingMatches) { match in
-                matchCard(for: match)
-            }
+            .padding()
         }
+        .background(Color(.systemGroupedBackground))
         .navigationTitle("Possible matches")
         .onAppear(perform: reload)
     }
@@ -29,32 +35,46 @@ struct MatchReviewView: View {
         let lost = lostReports.first { $0.id == match.lostReportID }
         let found = foundReports.first { $0.id == match.foundReportID }
 
-        return VStack(alignment: .leading, spacing: 10) {
-            Label("Possible match found", systemImage: "checkmark.circle.fill")
-                .foregroundStyle(.green)
-                .font(.headline)
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Label("Possible match found", systemImage: "sparkles")
+                    .font(.headline)
+                    .foregroundStyle(AppTheme.pending)
+                Spacer()
+                Text("\(match.confidencePercent)% match")
+                    .font(.caption.weight(.bold))
+                    .padding(.horizontal, 10).padding(.vertical, 4)
+                    .background(Capsule().fill(confidenceColor(match.confidencePercent).opacity(0.15)))
+                    .foregroundStyle(confidenceColor(match.confidencePercent))
+            }
 
             if let lost {
-                infoBlock(label: "You lost", text: "\(lost.itemName) — \(lost.location)")
+                infoBlock(icon: "questionmark.circle.fill", color: AppTheme.lost,
+                          label: "You lost", text: "\(lost.itemName) — \(lost.location)")
             }
             if let found {
-                infoBlock(label: "Someone found", text: "\(found.itemName) — \(found.location)")
+                infoBlock(icon: "checkmark.circle.fill", color: AppTheme.found,
+                          label: "Someone found", text: "\(found.itemName) — \(found.location)")
             }
 
-            HStack {
+            HStack(spacing: 10) {
                 Button("Confirm, this is mine") { updateStatus(match.id, to: "confirmed") }
                     .buttonStyle(.borderedProminent)
+                    .tint(AppTheme.matched)
                 Button("Not my item") { updateStatus(match.id, to: "rejected") }
                     .buttonStyle(.bordered)
             }
         }
-        .padding(.vertical, 6)
+        .cardStyle()
     }
 
-    private func infoBlock(label: String, text: String) -> some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(label).font(.caption).foregroundStyle(.secondary)
-            Text(text)
+    private func infoBlock(icon: String, color: Color, label: String, text: String) -> some View {
+        HStack(spacing: 10) {
+            Image(systemName: icon).foregroundStyle(color)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(label).font(.caption).foregroundStyle(.secondary)
+                Text(text).font(.subheadline)
+            }
         }
     }
 
@@ -67,5 +87,14 @@ struct MatchReviewView: View {
     private func updateStatus(_ id: UUID, to status: String) {
         try? repository.updateMatchStatus(id: id, status: status)
         reload()
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+    
+    private func confidenceColor(_ percent: Int) -> Color {
+        switch percent {
+        case 80...: return AppTheme.matched
+        case 60..<80: return AppTheme.pending
+        default: return .secondary
+        }
     }
 }

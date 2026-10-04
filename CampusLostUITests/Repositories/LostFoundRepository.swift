@@ -30,6 +30,7 @@ struct MatchRecordItem: Identifiable, Equatable {
     var status: String
     var lostReportID: UUID
     var foundReportID: UUID
+    var confidencePercent: Int
 }
 
 /// Abstracts all persistence for lost/found reports and matches behind a

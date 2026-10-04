@@ -23,6 +23,7 @@
         <relationship name="matchRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MatchRecord" inverseName="lostReport" inverseEntity="MatchRecord"/>
     </entity>
     <entity name="MatchRecord" representedClassName="MatchRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="confidencePercent" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="matchDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="status" optional="YES" attributeType="String"/>

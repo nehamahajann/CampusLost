@@ -70,6 +70,7 @@ final class CoreDataLostFoundRepository: LostFoundRepository {
         entity.id = match.id
         entity.matchDate = match.matchDate
         entity.status = match.status
+        entity.confidencePercent = Int32(match.confidencePercent)
 
         let lostRequest = LostReport.fetchRequest()
         lostRequest.predicate = NSPredicate(format: "id == %@", match.lostReportID as CVarArg)
@@ -122,9 +123,19 @@ final class CoreDataLostFoundRepository: LostFoundRepository {
         )
     }
 
-    private static func toItem(_ entity: MatchRecord) -> MatchRecordItem? {
+//    private static func toItem(_ entity: MatchRecord) -> MatchRecordItem? {
+//        guard let id = entity.id, let matchDate = entity.matchDate, let status = entity.status,
+//              let lostID = entity.lostReport?.id, let foundID = entity.foundReport?.id else { return nil }
+//        return MatchRecordItem(id: id, matchDate: matchDate, status: status, lostReportID: lostID, foundReportID: foundID)
+//    }
+    
+    private nonisolated static func toItem(_ entity: MatchRecord) -> MatchRecordItem? {
         guard let id = entity.id, let matchDate = entity.matchDate, let status = entity.status,
               let lostID = entity.lostReport?.id, let foundID = entity.foundReport?.id else { return nil }
-        return MatchRecordItem(id: id, matchDate: matchDate, status: status, lostReportID: lostID, foundReportID: foundID)
+        return MatchRecordItem(
+            id: id, matchDate: matchDate, status: status,
+            lostReportID: lostID, foundReportID: foundID,
+            confidencePercent: Int(entity.confidencePercent)
+        )
     }
 }
