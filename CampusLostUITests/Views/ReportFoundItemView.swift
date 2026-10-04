@@ -3,6 +3,8 @@ import SwiftUI
 struct ReportFoundItemView: View {
     @Environment(\.dismiss) private var dismiss
 
+    var sharedPhoto: UIImage? = nil
+
     @State private var itemName = ""
     @State private var category = "Electronics"
     @State private var location = ""
@@ -15,26 +17,44 @@ struct ReportFoundItemView: View {
 
     var body: some View {
         Form {
-            Section("Found item") {
+            if let sharedPhoto {
+                Section {
+                    Image(uiImage: sharedPhoto)
+                        .resizable().scaledToFit()
+                        .frame(maxHeight: 180)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .frame(maxWidth: .infinity)
+                }
+            }
+
+            Section {
                 TextField("Item name", text: $itemName)
                 Picker("Category", selection: $category) {
-                    ForEach(categories, id: \.self) { Text($0) }
+                    ForEach(categories, id: \.self) { cat in
+                        Label(cat, systemImage: AppTheme.categoryIcon(cat)).tag(cat)
+                    }
                 }
                 TextField("Location found", text: $location)
                 DatePicker("Date found", selection: $date, in: ...Date.now, displayedComponents: .date)
                 TextField("Description", text: $itemDescription, axis: .vertical)
                     .lineLimit(3...6)
+            } header: {
+                Label("What did you find?", systemImage: "checkmark.circle.fill")
+                    .foregroundStyle(AppTheme.found)
             }
 
-            Button("Submit report", action: submit)
-                .frame(maxWidth: .infinity)
+            Section {
+                Button(action: submit) {
+                    Text("Submit report").frame(maxWidth: .infinity).fontWeight(.semibold)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(AppTheme.found)
+            }
         }
         .navigationTitle("Report found item")
         .alert("Couldn't Submit", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) { errorMessage = nil }
-        } message: {
-            Text(errorMessage ?? "")
-        }
+        } message: { Text(errorMessage ?? "") }
     }
 
     private func submit() {
@@ -43,6 +63,7 @@ struct ReportFoundItemView: View {
                 itemName: itemName, category: category, itemDescription: itemDescription,
                 location: location, date: date
             )
+            SharedPhotoStore.clearPendingPhoto()
             dismiss()
         } catch {
             errorMessage = error.localizedDescription

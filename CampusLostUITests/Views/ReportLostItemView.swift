@@ -15,26 +15,34 @@ struct ReportLostItemView: View {
 
     var body: some View {
         Form {
-            Section("Lost item") {
+            Section {
                 TextField("Item name", text: $itemName)
                 Picker("Category", selection: $category) {
-                    ForEach(categories, id: \.self) { Text($0) }
+                    ForEach(categories, id: \.self) { cat in
+                        Label(cat, systemImage: AppTheme.categoryIcon(cat)).tag(cat)
+                    }
                 }
                 TextField("Location (e.g. Building 11)", text: $location)
                 DatePicker("Date lost", selection: $date, in: ...Date.now, displayedComponents: .date)
                 TextField("Description", text: $itemDescription, axis: .vertical)
                     .lineLimit(3...6)
+            } header: {
+                Label("What did you lose?", systemImage: "questionmark.circle.fill")
+                    .foregroundStyle(AppTheme.lost)
             }
 
-            Button("Submit report", action: submit)
-                .frame(maxWidth: .infinity)
+            Section {
+                Button(action: submit) {
+                    Text("Submit report").frame(maxWidth: .infinity).fontWeight(.semibold)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(AppTheme.lost)
+            }
         }
         .navigationTitle("Report lost item")
         .alert("Couldn't Submit", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) { errorMessage = nil }
-        } message: {
-            Text(errorMessage ?? "")
-        }
+        } message: { Text(errorMessage ?? "") }
     }
 
     private func submit() {
