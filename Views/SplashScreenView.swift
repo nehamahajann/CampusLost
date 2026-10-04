@@ -1,13 +1,5 @@
-//
-//  SplashScreenView.swift
-//  CampusLost
-//
-//  Created by Neha on 3/10/2026.
-//
 import SwiftUI
 
-/// The launch splash screen — shown briefly before HomeView appears,
-/// visualising the app's core idea: something lost becomes something found.
 struct SplashScreenView: View {
     @State private var titleVisible = false
     @State private var iconVisible = false

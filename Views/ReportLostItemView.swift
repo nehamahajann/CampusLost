@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ReportLostItemView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var locationService = CampusLocationService()
 
     @State private var itemName = ""
     @State private var category = "Electronics"
@@ -9,7 +10,8 @@ struct ReportLostItemView: View {
     @State private var date = Date.now
     @State private var itemDescription = ""
     @State private var errorMessage: String?
-
+    @State private var didSave = false
+    
     private let categories = ["Electronics", "Clothing", "Bag", "Keys", "ID/Cards", "Other"]
     private let repository: LostFoundRepository = CoreDataLostFoundRepository()
 
@@ -23,6 +25,15 @@ struct ReportLostItemView: View {
                     }
                 }
                 TextField("Location (e.g. Building 11)", text: $location)
+                if let suggested = locationService.suggestedBuilding, location.isEmpty {
+                    Button {
+                        location = suggested
+                    } label: {
+                        Label("Use detected location: \(suggested)", systemImage: "location.fill")
+                            .font(.caption)
+                    }
+                }
+                
                 DatePicker("Date lost", selection: $date, in: ...Date.now, displayedComponents: .date)
                 TextField("Description", text: $itemDescription, axis: .vertical)
                     .lineLimit(3...6)
@@ -40,9 +51,14 @@ struct ReportLostItemView: View {
             }
         }
         .navigationTitle("Report lost item")
+        .onAppear { locationService.requestLocation() }
+        
         .alert("Couldn't Submit", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) { errorMessage = nil }
         } message: { Text(errorMessage ?? "") }
+        .alert("Report Submitted", isPresented: $didSave) {
+            Button("OK") { dismiss() }
+        } message: { Text("Your lost item report has been saved. We'll check for matches automatically.") }
     }
 
     private func submit() {
@@ -51,7 +67,7 @@ struct ReportLostItemView: View {
                 itemName: itemName, category: category, itemDescription: itemDescription,
                 location: location, date: date
             )
-            dismiss()
+            didSave = true
         } catch {
             errorMessage = error.localizedDescription
         }

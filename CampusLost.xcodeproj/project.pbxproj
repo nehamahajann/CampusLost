@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		914B41BD307207D300535ED7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 914B41BC307207C500535ED7 /* README.md */; };
 		91EDC66D3070D03300AE5061 /* CampusLostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC66B3070D03300AE5061 /* CampusLostApp.swift */; };
 		91EDC6723070D06300AE5061 /* CampusLost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */; };
 		91EDC6733070D06300AE5061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDC66F3070D06300AE5061 /* Assets.xcassets */; };
@@ -59,7 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		914B412F307206DC00535ED7 /* CampusLost.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = CampusLost.xctestplan; sourceTree = "<group>"; };
+		914B412F307206DC00535ED7 /* CampusLost.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CampusLost.xctestplan; sourceTree = "<group>"; };
+		914B41BC307207C500535ED7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		91EDC5B8306FD0BB00AE5061 /* CampusLost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusLost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDC5C7306FD0BE00AE5061 /* CampusLostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusLostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDC6103070C85C00AE5061 /* CampusLost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CampusLost.entitlements; sourceTree = "<group>"; };
@@ -76,52 +78,83 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		91EDC6763070D1EE00AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLost" target */ = {
+		914B41CC3072099600535ED7 /* Exceptions for "Repositories" folder in "CampusLost" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Repositories/CoreDataLostFoundRepository.swift,
-				Repositories/LostFoundRepository.swift,
-				Repositories/MockLostFoundRepository.swift,
-				Support/AppTheme.swift,
-				Support/PersistenceController.swift,
-				Support/SharedPhotoStore.swift,
-				UseCases/MatchLostAndFoundItemUseCase.swift,
-				UseCases/ReportFoundItemUseCase.swift,
-				UseCases/ReportLostItemUseCase.swift,
-				Views/BrowseFoundItemsView.swift,
-				Views/HomeView.swift,
-				Views/MatchReviewView.swift,
-				Views/MyReportsView.swift,
-				Views/ReportFoundItemView.swift,
-				Views/ReportLostItemView.swift,
-				Views/SplashScreenView.swift,
+				CoreDataLostFoundRepository.swift,
+				LostFoundRepository.swift,
+				MockLostFoundRepository.swift,
 			);
 			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
 		};
-		91EDC6913070D67200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostTests" target */ = {
+		914B41CD3072099600535ED7 /* Exceptions for "Repositories" folder in "CampusLostTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Repositories/LostFoundRepository.swift,
-				Repositories/MockLostFoundRepository.swift,
-				UseCases/MatchLostAndFoundItemUseCase.swift,
-				UseCases/ReportFoundItemUseCase.swift,
-				UseCases/ReportLostItemUseCase.swift,
+				LostFoundRepository.swift,
+				MockLostFoundRepository.swift,
 			);
 			target = 91EDC5C6306FD0BE00AE5061 /* CampusLostTests */;
+		};
+		914B41CE3072099600535ED7 /* Exceptions for "Repositories" folder in "CampusLostWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreDataLostFoundRepository.swift,
+				LostFoundRepository.swift,
+			);
+			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
+		};
+		914B41D7307209B300535ED7 /* Exceptions for "Support" folder in "CampusLost" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppTheme.swift,
+				CampusLocationService.swift,
+				PersistenceController.swift,
+				SharedPhotoStore.swift,
+			);
+			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
+		};
+		914B41D8307209B300535ED7 /* Exceptions for "Support" folder in "CampusLostWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PersistenceController.swift,
+			);
+			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
+		};
+		914B41E3307209C100535ED7 /* Exceptions for "UseCases" folder in "CampusLost" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MatchLostAndFoundItemUseCase.swift,
+				ReportFoundItemUseCase.swift,
+				ReportLostItemUseCase.swift,
+			);
+			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
+		};
+		914B41E4307209C100535ED7 /* Exceptions for "UseCases" folder in "CampusLostTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MatchLostAndFoundItemUseCase.swift,
+				ReportFoundItemUseCase.swift,
+				ReportLostItemUseCase.swift,
+			);
+			target = 91EDC5C6306FD0BE00AE5061 /* CampusLostTests */;
+		};
+		914B41F4307209D300535ED7 /* Exceptions for "Views" folder in "CampusLost" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BrowseFoundItemsView.swift,
+				HomeView.swift,
+				MatchReviewView.swift,
+				MyReportsView.swift,
+				ReportFoundItemView.swift,
+				ReportLostItemView.swift,
+				SplashScreenView.swift,
+			);
+			target = 91EDC5B7306FD0BB00AE5061 /* CampusLost */;
 		};
 		91EDC6B03070DAE600AE5061 /* Exceptions for "CampusLostWidget" folder in "CampusLostWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-			);
-			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
-		};
-		91EDC6B43070DCE200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Repositories/CoreDataLostFoundRepository.swift,
-				Repositories/LostFoundRepository.swift,
-				Support/PersistenceController.swift,
 			);
 			target = 91EDC6993070DAE500AE5061 /* CampusLostWidgetExtension */;
 		};
@@ -135,19 +168,45 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		914B41C43072099600535ED7 /* Repositories */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				914B41CC3072099600535ED7 /* Exceptions for "Repositories" folder in "CampusLost" target */,
+				914B41CD3072099600535ED7 /* Exceptions for "Repositories" folder in "CampusLostTests" target */,
+				914B41CE3072099600535ED7 /* Exceptions for "Repositories" folder in "CampusLostWidgetExtension" target */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		914B41D2307209B300535ED7 /* Support */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				914B41D7307209B300535ED7 /* Exceptions for "Support" folder in "CampusLost" target */,
+				914B41D8307209B300535ED7 /* Exceptions for "Support" folder in "CampusLostWidgetExtension" target */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		914B41DC307209C100535ED7 /* UseCases */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				914B41E3307209C100535ED7 /* Exceptions for "UseCases" folder in "CampusLost" target */,
+				914B41E4307209C100535ED7 /* Exceptions for "UseCases" folder in "CampusLostTests" target */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		914B41EC307209D300535ED7 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				914B41F4307209D300535ED7 /* Exceptions for "Views" folder in "CampusLost" target */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		91EDC5CA306FD0BE00AE5061 /* CampusLostTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CampusLostTests;
-			sourceTree = "<group>";
-		};
-		91EDC5D4306FD0BE00AE5061 /* CampusLostUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				91EDC6763070D1EE00AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLost" target */,
-				91EDC6913070D67200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostTests" target */,
-				91EDC6B43070DCE200AE5061 /* Exceptions for "CampusLostUITests" folder in "CampusLostWidgetExtension" target */,
-			);
-			path = CampusLostUITests;
 			sourceTree = "<group>";
 		};
 		91EDC6A03070DAE500AE5061 /* CampusLostWidget */ = {
@@ -213,12 +272,16 @@
 				91EDC66F3070D06300AE5061 /* Assets.xcassets */,
 				91EDC6703070D06300AE5061 /* CampusLost.xcdatamodeld */,
 				91EDC66B3070D03300AE5061 /* CampusLostApp.swift */,
+				914B41EC307209D300535ED7 /* Views */,
+				914B41DC307209C100535ED7 /* UseCases */,
+				914B41D2307209B300535ED7 /* Support */,
+				914B41C43072099600535ED7 /* Repositories */,
 				91EDC5CA306FD0BE00AE5061 /* CampusLostTests */,
-				91EDC5D4306FD0BE00AE5061 /* CampusLostUITests */,
 				91EDC6A03070DAE500AE5061 /* CampusLostWidget */,
 				91EDC6D83070EE6900AE5061 /* CampusLostNotification */,
 				91EDC69B3070DAE500AE5061 /* Frameworks */,
 				91EDC5B9306FD0BB00AE5061 /* Products */,
+				914B41BC307207C500535ED7 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -389,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914B41BD307207D300535ED7 /* README.md in Resources */,
 				91EDC6733070D06300AE5061 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,6 +664,7 @@
 				DEVELOPMENT_TEAM = 893Y7L7B66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "CampusLost uses your location to suggest which campus building you're in when reporting a lost or found item.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -635,6 +700,7 @@
 				DEVELOPMENT_TEAM = 893Y7L7B66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "CampusLost uses your location to suggest which campus building you're in when reporting a lost or found item.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

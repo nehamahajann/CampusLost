@@ -1,11 +1,3 @@
-//
-//  ReportFoundItemUseCaseTests.swift
-//  CampusLost
-//
-//  Created by Neha on 3/10/2026.
-//
-
-
 import XCTest
 @testable import CampusLost
 

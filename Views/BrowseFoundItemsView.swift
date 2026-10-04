@@ -1,17 +1,8 @@
-//
-//  BrowseFoundItemsView.swift
-//  CampusLost
-//
-//  Created by Neha on 3/10/2026.
-//
-
-
 import SwiftUI
 
 /// Lets a student manually search through everything reported found on
 /// campus, for when they'd rather look themselves than wait for an
-/// automatic match — directly fulfilling the original "browse/search
-/// reports" requirement from the initial CampusLost concept.
+/// s
 struct BrowseFoundItemsView: View {
     @State private var foundReports: [FoundReportItem] = []
     @State private var searchText = ""
@@ -54,8 +45,8 @@ struct BrowseFoundItemsView: View {
                 .padding(.vertical, 4)
             }
         }
-        .searchable(text: $searchText, prompt: "Search by item, category, or location")
-        .navigationTitle("Found items")
+
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by item, category, or location")        .navigationTitle("Found items")
         .onAppear {
             foundReports = repository.allFoundReports()
         }

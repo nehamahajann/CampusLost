@@ -1,6 +1,6 @@
 import Foundation
 
-/// An in-memory stand-in for LostFoundRepository, used only in unit tests —
+/// An in-memory stand-in for LostFoundRepository, used only in unit tests
 /// no Core Data stack involved at all, so tests run fast and in isolation.
 final class MockLostFoundRepository: LostFoundRepository {
     var lostReports: [LostReportItem] = []

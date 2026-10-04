@@ -1,9 +1,6 @@
 import CoreData
 import Foundation
 
-/// The real, on-device implementation of LostFoundRepository, backed by
-/// Core Data. Converts between Core Data's generated NSManagedObject
-/// classes and the plain structs the rest of the app works with.
 final class CoreDataLostFoundRepository: LostFoundRepository {
     private let context: NSManagedObjectContext
 

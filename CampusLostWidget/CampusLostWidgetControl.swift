@@ -1,10 +1,3 @@
-//
-//  CampusLostWidgetControl.swift
-//  CampusLostWidget
-//
-//  Created by Neha on 3/10/2026.
-//
-
 import AppIntents
 import SwiftUI
 import WidgetKit
